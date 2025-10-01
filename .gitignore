@@ -46,3 +46,5 @@ Thumbs.db
 # OS specific
 ehthumbs.db
 Icon?
+
+/src/generated/prisma
