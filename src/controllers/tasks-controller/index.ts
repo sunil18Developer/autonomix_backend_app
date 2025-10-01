@@ -10,25 +10,30 @@ export const generateTasks = async (req: Request, res: Response) => {
   }
 
   const prompt = `
-    You are an assistant that converts meeting transcripts into structured actionable tasks.
-    Please parse the following transcript and output JSON in this format:
+You are an assistant that converts meeting transcripts into structured actionable tasks.
+Please parse the following transcript and output JSON in this format:
 
+{
+  "tasks": [
     {
-      "tasks": [
-        {
-          "title": "...",
-          "description": "...",
-          "owner": "...",
-          "priority": "...",
-          "due": "...",
-          "status": "..."
-        }
-      ]
+      "id": "random-uuid-string",
+      "title": "...",
+      "description": "...",
+      "owner": "...",
+      "priority": "...",
+      "due": "...",
+      "status": "...",
+      "createdAt": 1735734100000
     }
+  ]
+}
 
-    Transcript:
-    ${transcript}
-  `;
+- "id" should be a randomly generated UUID v4 string.
+- "createdAt" should be a Unix timestamp in milliseconds (e.g., Date.now()).
+
+Transcript:
+${transcript}
+`;
 
   try {
     const result = await ai.models.generateContent({
