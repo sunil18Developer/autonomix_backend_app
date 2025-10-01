@@ -5,7 +5,19 @@ import routes from "./routes";
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins =
+  process.env.NODE_ENV === "production"
+    ? ["https://autonomix-assignment-uq1d.vercel.app/"]
+    : ["http://localhost:3000"];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.use(bodyParser.json());
 app.use("/api", routes);
 
