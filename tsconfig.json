@@ -5,11 +5,9 @@
     "rootDir": "src",
     "outDir": "dist",
     "strict": true,
-    "moduleResolution": "node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": ["src", "src/controllers"],
-  "exclude": ["node_modules"]
+  "include": ["src"]
 }
