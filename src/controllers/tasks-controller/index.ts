@@ -96,7 +96,6 @@ ${transcript}
     for (const t of tasks.tasks) {
       const inserted = await prisma.task.create({
         data: {
-          id: t.id,
           title: t.title,
           description: t.description,
           owner: t.owner || "Unassigned",

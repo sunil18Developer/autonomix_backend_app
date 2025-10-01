@@ -9,7 +9,7 @@ datasource db {
 }
 
 model task {
-  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id          String    @id @default(uuid())
   created_at  DateTime  @default(now()) @db.Timestamptz(6)
   title       String?   @db.VarChar
   description String?
@@ -17,7 +17,7 @@ model task {
   status      Status?
   priority    Priority?
   due         DateTime? @db.Timestamptz(6)
-  createdAt  BigInt    @db.BigInt
+  createdAt   BigInt    @db.BigInt
 }
 
 enum Priority {
