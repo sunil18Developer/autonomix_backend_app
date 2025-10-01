@@ -13,6 +13,7 @@
     "start": "node dist/server.js",
     "migrate:deploy": "prisma migrate deploy",
     "generate": "prisma generate",
+    "render-build": "npm install --include=dev && npx prisma generate && npm run build",
     "db:push": "prisma db push"
   },
   "keywords": [],
